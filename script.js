@@ -1,0 +1,21 @@
+`use strict`;
+
+// footer date
+const footerYear = document.querySelector(".foot-span");
+const year = new Date().toLocaleDateString();
+footerYear.textContent = year;
+
+//submit button manipulation
+const formEl = document.querySelector(".form");
+const submitBtn = document.querySelector(".form-btn");
+const responseSection = document.querySelector(".response");
+const contactSection = document.querySelector(".contact");
+
+submitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  const formdata = new FormData(formEl);
+  const data = Object.fromEntries(formdata);
+  formEl.reset();
+  responseSection.classList.remove("response");
+  contactSection.classList.add("response");
+});
